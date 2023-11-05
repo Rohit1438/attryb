@@ -7,6 +7,7 @@
     grid-template-columns: 12% 88%;
     /* background-image: url("../Images/bg/5.jpeg"); */
     background-color: #180d2c;
+    border: 5px solid;
     height: 100%;
 position: sticky;
 background-size:cover;

@@ -245,7 +245,9 @@ const Filter = styled.div`
   background-color: white;
 
   padding-left: 10px;
-  height: 100vh;
+  height: 100%;
+  position: sticky;
+
   padding-right: 10px;
   select {
     width: 100%;
@@ -289,12 +291,16 @@ const Div = styled.div`
     margin: auto;
     font-size: 20px;
     background-color: white;
+    position: sticky;
+    height: 500px;
   }
   th{
   padding: 10px;
 }
   table{
     font-size: 25px;
+
+    
   }
   thead{
     background-color: #626262;

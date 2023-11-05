@@ -4,12 +4,12 @@ import styled from "styled-components";
 
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import axios from "axios";
-import { useToast } from "@chakra-ui/react";
+import { CircularProgress, useToast } from "@chakra-ui/react";
 const SignUp = () => {
   const location = useLocation();
 
   const navigate = useNavigate();
-
+  const [loader,setLoader]=useState(false)
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,6 +25,7 @@ const SignUp = () => {
   const handelSignin = async () => {
     console.log();
     try {
+      setLoader(true)
       let res = await axios.post(`${url}/user/signup`, {
         email: email,
         password: password,
@@ -32,6 +33,7 @@ const SignUp = () => {
       });
       res = res.data;
       console.log(res,"signup");
+      setLoader(false)
       if (res.message == "User created") {
         toast({
           title: "User created",
@@ -44,6 +46,7 @@ const SignUp = () => {
 
         navigate("/login");
       } else {
+        setLoader(false)
         console.log("coming in error");
         toast({
           title: "Something went wrong 😔",
@@ -56,9 +59,10 @@ const SignUp = () => {
       }
     } catch (err) {
       console.log(err);
+      setLoader(false)
       toast({
         title: "Something went wrong 😔",
-        description: `${err.response.data.message}`,
+        description: `${err.response.data.errors[0].msg} **${err.response.data.errors[0].path}**`,
         status: "error",
         position: "top",
         duration: 2000,
@@ -92,7 +96,7 @@ const SignUp = () => {
         <p className="p2">
           Already have an account?{" "}
           <Link className="Link" to={"/login"}>
-            Login
+            Login  {loader? <CircularProgress isIndeterminate color="green.300" />:""}
           </Link>
         </p>
       </DIV>
