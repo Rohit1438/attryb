@@ -1,0 +1,41 @@
+
+            <div className={styles.SingleComments}>
+              <div className="commentAdd">
+<form action="" onSubmit={(e)=>handelCommentPost(e)}>
+<input
+                  type="text"
+                  id="comment"
+                  placeholder="Add a comment"
+                  // onChange={handelChange}
+                />
+                <button id="add" >
+                  {" "}
+                  <i class="fa-regular fa-comment"></i>
+                </button>
+</form>
+              </div>
+
+              <div>
+                {/* <h2 id="commentheading" style={{ color: "#171819" }}>
+                  Comment Section
+                </h2> */}
+                {data?.comment ? (
+                  <>
+                    {/* {data?.comment.reverse().map((el, index) => (
+                      <Comment key={index} {...el} />
+                    ))} */}
+
+
+{commentData?.reverse().map((el, index) => (
+                      <Comment key={index} {...el} />
+                    ))}
+                  </>
+                ) : (
+                  <>
+                  <p>comment now</p>
+                  </>
+                )}
+
+
+              </div>
+            </div>

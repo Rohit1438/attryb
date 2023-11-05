@@ -1,0 +1,86 @@
+
+.SingleProductPage{
+    background-color: #ba9aff;
+    color: white;
+
+    background-size:cover;
+    background-repeat: no-repeat;
+width: 80%;
+
+margin: auto;
+align-items: center;
+}
+.SingleProductContainer{
+    position: sticky;
+    /* Enable scrolling for comments container */
+    overflow-y: auto;
+    height: 100vh;
+    margin-bottom: 20px;
+}
+
+.SingleProduct{
+    width: 100%;
+align-items: center;
+border-radius: 5px;
+padding: 20px 60px 20px;
+    color: #ffffff;
+display: grid;
+grid-template-columns: 35% 60%;
+/* border: 5px solid white; */
+justify-content: space-around;
+
+}
+.SingleDescriptionConatiner>h1{
+font-size: 3rem;
+}
+.SingleDescriptionConatiner{
+
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    }
+
+    .SingleComments {
+        border: 1px solid #e4c59074;
+        background-color: #6B21FF;
+        position: sticky;
+        /* Enable scrolling for comments container */
+        overflow-y: auto;
+       height: 100vh;
+        /* Adjust the height as needed */
+      }
+
+
+      @media (max-width: 600px) {
+
+
+        
+.SingleProductPage{
+
+}
+        .SingleProductPage{
+            
+        
+            /* display: flex;
+            flex-direction: column;
+            align-items: center; */
+           display: grid;
+           grid-template-columns: 100%;
+    align-items: center;
+    
+        }
+        .SingleProduct{
+            display: flex;
+            flex-direction: column;
+        }
+        .SingleProduct{
+       
+        padding: 0px;
+        margin-top: 20px;
+
+        
+        }
+        .SingleDescriptionConatiner>h1{
+            font-size: 1.8rem;
+            }
+    }

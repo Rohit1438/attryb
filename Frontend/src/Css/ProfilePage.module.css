@@ -1,0 +1,110 @@
+.ProfilePage{
+ 
+    height: 100vh;
+    background-size:cover;
+    background-repeat: no-repeat;
+
+    display: grid;
+
+}
+
+
+.FullProductsPage{
+    display: grid;
+    /* padding-top: 50px; */
+    width: 98%;
+    margin: auto;
+    grid-template-columns: 12% 88%;
+    /* background-image: url("../Images/bg/5.jpeg"); */
+    background-color: #180d2c;
+    
+    height: 100%;
+position: sticky;
+background-size:cover;
+background-repeat: no-repeat;
+box-sizing: border-box;
+/* border: 5px solid green; */
+}
+
+.ProductsPage{
+
+
+top: 0;
+    color: white;
+    font-weight: 300;
+    width: 100%;
+
+    /* background-color: #171819; */
+}
+.PostsCardContainer{
+    width: 100%;
+    margin: auto;
+/* border: 5px solid green; */
+   
+   display: grid;
+   grid-template-columns: repeat(6,1fr);
+   grid-template-rows: repeat(2,1fr);
+   justify-content: space-between;
+   gap: 20px 0px;
+
+}
+/* ..ProductsPageSideBar{
+    background-color: #a97dff;
+} */
+.ProductsPost{
+    /* border: 1px solid #e4c590c2; */
+    margin: auto;
+      width:60%;
+     
+    }
+/* 
+
+    @media (max-width: 1100px) {
+
+
+        .FullProductsPage{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ProductsPost{
+            width: 100%;
+        }
+
+        .PostsCardContainer{
+
+            grid-template-columns: repeat(2,1fr);
+            gap: 10px;
+         
+         }
+
+        
+ 
+    } */
+    @media (max-width: 600px) {
+
+
+        /* .FullProductsPage{
+            display: flex;
+            flex-direction: column;
+        } */
+
+        .ProductsPost{
+            width: 100%;
+        }
+        .PostsCardContainer{
+
+         display: flex;
+         flex-direction: column;
+        
+        }
+        /* .FullProductsPage{
+            padding-top: 20px;
+
+        } */
+
+        .FullProductsPage{
+display: flex;
+flex-direction: column;
+        }
+    }
