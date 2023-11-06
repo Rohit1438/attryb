@@ -74,7 +74,7 @@ const SignUp = () => {
     <Div>
       <DIV>
         <h1>Sign In</h1>
-        <h2>🤩Welcome to Filmy hall 🤩</h2>
+        <h2>🤩Welcome to Buy Car🚘 🤩</h2>
         <input
           type="text"
           placeholder="Username"

@@ -7,7 +7,7 @@ import axios from "axios";
 import { CircularProgress, useToast } from "@chakra-ui/react";
 const Login = () => {
   const navigate = useNavigate();
-  const [loader,setLoader]=useState(false)
+  const [loader, setLoader] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +16,7 @@ const Login = () => {
   const toast = useToast();
   const handleLogin = async () => {
     try {
-      setLoader(true)
+      setLoader(true);
       let res = await axios.post(`${url}/user/login`, {
         email: email,
         password: password,
@@ -25,7 +25,7 @@ const Login = () => {
       res = res.data;
       console.log(res, "ress");
       if (res.token) {
-        setLoader(false)
+        setLoader(false);
         console.log(res.token);
         localStorage.setItem("buycartoken", res.token);
         toast({
@@ -42,10 +42,10 @@ const Login = () => {
         }, 2000);
       } else {
         console.log("coming infalied");
-        setLoader(false)
+        setLoader(false);
         toast({
-          title: "Login Unsuccessful",
-          description: `${res.response.data}`,
+          title: "Something went wrong, ",
+          description: `try again with correct email and 4 password`,
           status: "error",
           position: "top",
           duration: 2000,
@@ -53,16 +53,37 @@ const Login = () => {
         });
       }
     } catch (err) {
-      console.log(err);
-      setLoader(false)
-      toast({
-        title: "Login Unsuccessful",
-        description: `${err.response.data}`,
-        status: "error",
-        position: "top",
-        duration: 2000,
-        isClosable: true,
-      });
+      console.log(err.response.data);
+      setLoader(false);
+
+      if (err.response.data == "User not registered") {
+        toast({
+          title: "No user found",
+          description: `Create a account first to proceed`,
+          status: "error",
+          position: "top",
+          duration: 2000,
+          isClosable: true,
+        });
+      } else if (err.response.data == "Incorrect Password") {
+        toast({
+          title: "Password didnt matched",
+          description: `use correct password to proceed`,
+          status: "error",
+          position: "top",
+          duration: 2000,
+          isClosable: true,
+        });
+      } else {
+        toast({
+          title: "Login Unsuccessful",
+          description: `Something went wrong, please try again with a proper email and 4 digit password`,
+          status: "error",
+          position: "top",
+          duration: 2000,
+          isClosable: true,
+        });
+      }
     }
   };
 
@@ -70,7 +91,7 @@ const Login = () => {
     <Div>
       <DIV>
         <h1>Log in now !!</h1>
-        <h2>your movies are waiting for you 🥳🥳</h2>
+        <h2>your inventory is waiting for you 🥳🥳</h2>
         <input
           type="email"
           placeholder="Email"
@@ -88,7 +109,12 @@ const Login = () => {
         <p className="p2">
           Dont have an account? create now!!{" "}
           <Link className="Link" to={"/signup"}>
-            Sign up {loader? <CircularProgress isIndeterminate color="green.300" />:""}
+            Sign up{" "}
+            {loader ? (
+              <CircularProgress isIndeterminate color="green.300" />
+            ) : (
+              ""
+            )}
           </Link>
         </p>
       </DIV>

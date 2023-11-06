@@ -225,8 +225,8 @@ OEM Specs
   );
 }else{
   return(
-    <div style={{backgroundColor:"white"}}>
-      <h1 style={{color:"black",fontWeight:"600",fontSize:"35px"}}> Loading... <CircularProgress isIndeterminate color="green.200" /></h1>
+    <div style={{color:"white",backgroundColor:"#180d2c"}}>
+      <h1 style={{color:"white",fontWeight:"500",fontSize:"35px"}}> Loading... <CircularProgress isIndeterminate color="green.200" /></h1>
     </div>
   )
 }
